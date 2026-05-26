@@ -1,62 +1,75 @@
-# Chromium Automaton
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# chromium-automation
 
-Chromium-only automation built on the Chrome DevTools Protocol (CDP). A lightweight, Playwright-style API with `Browser`, `Context`, `Page`, `Frame`, and `Locator` primitives—no test runner included.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/chromium-automation)
 
-## Quick start
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
+
+## Architecture
+
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
+
+## Install
+
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
 ```bash
-npm install @quitecode/chromium-automaton
-npx chromium-automaton download    # downloads a pinned Chromium build
+git clone https://github.com/Interested-Deving-1896/chromium-automation.git
+cd chromium-automation
 ```
 
-```ts
-// quick.js
-import { chromium, expect } from "@quitecode/chromium-automaton";
+## Usage
 
-const browser = await chromium.launch({ headless: true });
-const page = await browser.newPage();
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-await page.goto("https://example.com");
-await expect(page).element("h1").toHaveText(/Example Domain/);
+## Configuration
 
-await browser.close();
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/chromium-automation`](https://github.com/Interested-Deving-1896/chromium-automation) and mirrored through:
+
+```
+Interested-Deving-1896/chromium-automation  ──►  OpenOS-Project-OSP/chromium-automation  ──►  OpenOS-Project-Ecosystem-OOC/chromium-automation
 ```
 
-Run it:
-```bash
-node quick.js
-```
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-## Core ideas
-- CDP-only: no WebDriver, no playwright-core dependency.
-- Small surface: pages/frames/locators, plus built-in expect matchers.
-- Selector routing: CSS by default; XPath if the selector starts with `/`, `./`, `.//`, `..`, or `(/`. Shadow DOM via `>>>` (e.g., `host >>> button`).
-- Contexts: `browser.newContext()` gives incognito-style isolation without launching a new browser.
-- Downloads: `npx chromium-automaton download` (or `--latest`) fetches Chromium into a local cache.
+## Contributors
 
-## Key APIs
-- `chromium.launch(options)` → `Browser`
-- `browser.newContext()` → isolated `BrowserContext`
-- `browser.newPage()` / `context.newPage()` → `Page`
-- `page.goto(url, { waitUntil: "load" | "domcontentloaded" })`
-- Actions: `click`, `dblclick`, `type`, `typeSecure`, `fillInput`, `selectOption`, `setFileInput`
-- Queries: `query`, `queryAll`, `queryXPath`, `queryAllXPath`, `locator`
-- Assertions: `expect(page).element("selector").toBeVisible()` (see `docs/guide/assertions.md`)
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-## Architecture at a glance (render-friendly)
-```
-CLI (chromium-automaton download) -> Downloader -> Chromium cache
+## Origins
 
-User code -> chromium.launch -> ChromiumManager -> Chromium process
-Chromium process -> CDP connection -> Browser -> Page -> Frame
-Page -> Locator / expect
-```
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-## Docs
-Full guide and API reference: https://quitecode9-lab.github.io/chromium-automation/ (built from `docs/` via VitePress). Start at `docs/guide/intro.md` or `docs/guide/api/`.
+## Resources
 
-## Demo app
-`index.html` is a local, data-driven visa-style wizard used to stress-test automation flows (no server required). Open it directly via `file://` to exercise navigation, conditionals, overlays, Shadow DOM, uploads, and receipts.
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
 ## License
-MIT
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
